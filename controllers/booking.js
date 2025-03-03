@@ -9,6 +9,11 @@ exports.createBooking = async (req, res, next) => {
   try {
     const { pickupDate, dropoffDate, rentalCarProvider, date } = req.body;
 
+    if (req.body.pickupDate > req.body.dropoffDate) {
+      return res.status(404).json({ success: false, message: 'pickupDate should come before dropoffDate' });
+
+    }
+
     // Check if the rental car provider exists
     const provider = await RentalCarProvider.findById(rentalCarProvider);
     if (!provider) {
@@ -37,6 +42,7 @@ exports.createBooking = async (req, res, next) => {
     res.status(500).json({ success: false, message: 'Booking failed', error: err.message });
   }
 };
+
 
 // @desc    Get all bookings (Admin can view all bookings, users can only see their own)
 // @route   GET /RentalC01/booking
