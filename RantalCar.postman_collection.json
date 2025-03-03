@@ -1,0 +1,426 @@
+{
+	"info": {
+		"_postman_id": "025a22bb-0a9b-4bb6-a482-d4212e68bb93",
+		"name": "RantalCar",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38269621"
+	},
+	"item": [
+		{
+			"name": "RantalCarP",
+			"item": [
+				{
+					"name": "get All RentalCarP",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "JSON TYPE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/RentalC01/rentalCarProvider",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"RentalC01",
+								"rentalCarProvider"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add RentalCarP",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "JSON TYPE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"{{$randomAdjective}}\",\r\n    \"address\":\"CHULA\",\r\n    \"district\":\"ABC\",\r\n    \"province\":\"Bangkok\",\r\n    \"postalcode\":\"10000\",\r\n    \"tel\":\"{{$randomPhoneNumber}}\",\r\n    \"region\":\"{{$randomAdjective}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/RentalC01/rentalCarProvider",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"RentalC01",
+								"rentalCarProvider"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get one RentalCarP",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/RentalC01/rentalCarProvider/67c1ee51acdb7ed25bdc3be5",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"RentalC01",
+								"rentalCarProvider",
+								"67c1ee51acdb7ed25bdc3be5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update rentalCarP",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"janeCarRental\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/RentalC01/rentalCarProvider/67c1ee51acdb7ed25bdc3be5",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"RentalC01",
+								"rentalCarProvider",
+								"67c1ee51acdb7ed25bdc3be5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete RentalCarP",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/RentalC01/rentalCarProvider/67c1ee48acdb7ed25bdc3be3",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"RentalC01",
+								"rentalCarProvider",
+								"67c1ee48acdb7ed25bdc3be3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "register",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "JSON TYPE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"{{$randomFullName}}\",\r\n    \"tel\":\"{{$randomPhoneNumber}}\",\r\n    \"email\":\"admin01@gmail.com\",\r\n    \"password\":\"11111111\",\r\n    \"role\":\"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/RentalC01/auth/register",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"RentalC01",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"TOKEN\",pm.response.json().token)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "JSON TYPE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    // \"email\":\"user01@gmail.com\",\r\n    // \"password\":\"11111111\"\r\n    \"email\":\"admin01@gmail.com\",\r\n    \"password\":\"11111111\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/RentalC01/auth/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"RentalC01",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get logged User with Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"TOKEN\",pm.response.json().token)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YjcxNzlhMjFiZjZiNjNjMTk1NDg3NCIsImlhdCI6MTc0MDA1MzU5MywiZXhwIjoxNzQyNjQ1NTkzfQ.ecNkQzaIin-Qvr8Auw15-H3S4C8PTtxfZqULyXApTE8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/RentalC01/auth/me",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"RentalC01",
+								"auth",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"TOKEN\",null)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/RentalC01/auth/logout",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"RentalC01",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Booking",
+			"item": [
+				{
+					"name": "get all booking",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/RentalC01/booking",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"RentalC01",
+								"booking"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{TOKEN}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "http://localhost:5000",
+			"type": "default"
+		},
+		{
+			"key": "TOKEN",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

@@ -1,0 +1,32 @@
+{
+  "name": "rantalcar",
+  "version": "1.0.0",
+  "description": "RantalCar by We kicked mom out of the house group",
+  "homepage": "https://github.com/2110503-2564/project-i-kicked-my-mom-out-of-the-house#readme",
+  "bugs": {
+    "url": "https://github.com/2110503-2564/project-i-kicked-my-mom-out-of-the-house/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2110503-2564/project-i-kicked-my-mom-out-of-the-house.git"
+  },
+  "license": "ISC",
+  "author": "JOYSOI8 WEB Aei",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.14.0",
+    "mongoose": "^8.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
