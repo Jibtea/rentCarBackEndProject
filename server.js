@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const connectDB = require('./config/db');
+const cors = require('cors');
 
 //load env
 dotenv.config({ path: './config/config.env' });
@@ -30,10 +31,20 @@ const auth = require('./routes/auth');
 
 //===app====
 const app = express();
+
+// // ใช้ CORS ให้รองรับคำขอจาก localhost:3000
+app.use(cors({
+  origin: '*', // หรือใช้ '*' สำหรับอนุญาตทุกโดเมน
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // ระบุวิธีที่อนุญาต
+}));
 app.use(express.json());
 app.use('/RentalC01/rentalCarProvider', rentelCarProvider);
 app.use('/RentalC01/booking', booking);
 app.use('/RentalC01/auth', auth);
+
+
+
+
 
 const PORT = process.env.PORT || 5000;
 
